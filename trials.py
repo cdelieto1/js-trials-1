@@ -46,26 +46,68 @@ def get_range(start, stop):
     return result    
 
 
-
 def censor_vowels(word):
-    pass  # TODO: replace this line with your code
+    VOWELS = ['a','e','i','o','u']
 
+    for letter in word:
+        if letter in VOWELS:
+            word = word.replace(letter, "*")
+
+    return word
+
+
+#print(censor_vowels("cassie"))    
 
 def snake_to_camel(string):
-    pass  # TODO: replace this line with your code
+
+    camelCase = []
+
+    for word in string.split("_"):
+        camelCase.append(f'{word[0].upper()}{word[1:]}')
+
+    return ''.join(camelCase)
+
+#print(snake_to_camel("hey_you"))
 
 
 def longest_word_length(words):
-    pass  # TODO: replace this line with your code
+
+    longest_word = max(words, key=len)
+    return len(longest_word)
+
+#print(longest_word_length(['hi', 'hiiiiii']))
 
 
 def truncate(string):
-    pass  # TODO: replace this line with your code
 
+    result = [] # result = "" didn't work
+
+    for letter in string:
+        if len(result) == 0 or letter != result[-1]:
+            result.append(letter)
+
+    return "".join(result)        
+
+#print(truncate("aaahhbbeer"))
 
 def has_balanced_parens(string):
-    pass  # TODO: replace this line with your code
+
+    parens = 0
+
+    for char in string:
+        if char == "(":
+            parens += 1
+        if char == ")":
+            parens -= 1
+
+            # if parens < 0:
+            #     return False 
+
+    return parens == 0            
+
+            
+#print(has_balanced_parens("("))
 
 
 def compress(string):
-    pass  # TODO: replace this line with your code
+    pass
